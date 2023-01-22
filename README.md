@@ -2,7 +2,7 @@
 
 This is the Forms Project in The Odin Project’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com/lessons/ruby-on-rails-forms.
 
-The Main purpose of this project to practice creating forms with Rails so no styling or other features have been added.
+The Main purpose of this project to practice creating, editing, and storing objects with Rails forms. No styling or other features have been added.
 
 * Ruby version: > v3.0
 
