@@ -5,40 +5,31 @@
 <%# HTML Form %>
 
 <%# <form action="/users/create" method="post" accept-charset="UTF-8">
-  
   <label for="username">Username:</label>
   <input type="string" id="username" name="user[username]"><br><br>
-  
   <label for="email">Email:</label>
   <input type="string" id="email" name="user[email]"><br><br>
-  
   <label for="password">Password:</label>
   <input type="password" id="password" name="user[password]"><br><br>
-  
   <input type="submit" value="Submit">
 </form> %>
 
-
 <%# Railsy Forms with #form_tag %>
-<%# 
-<%= form_tag('/users/create') do %>
+
+<%# <%= form_tag('/users/create') do %>
   <%# <%= label_tag(:username, "Username") %>
   <%# <%= text_field_tag(:username)  %>
-
   <%# <%= label_tag(:email, "Email") %>
   <%# <%= text_field_tag(:email)%>
-
   <%# <%= label_tag(:password, "Password") %>
   <%# <%= password_field_tag(:password) %>
   <%# <%= submit_tag %>
-  <%# <% end %>
- <%# %>
-
+<%# <% end %>
 
 <%# Railsy-er Forms with #form_with %>
 
 <%= form_with model: @user do |f| %>
-
+  <%# Display erorr messages when validations fail %>
   <% if @user.errors.any? %>
     <h4>These errors stopped the user from being saved:</h4>
     <ul>
@@ -47,7 +38,7 @@
       <% end %>
     </ul>
   <% end %>
-
+  <%# Form Inputs %>
   <%= f.label :username, "Username" %>
   <%= f.text_field :username, :value => "Keep it snappy" %> <br>
   <%= f.label :email, "E-mail" %>
@@ -59,10 +50,13 @@
 
 <h3>User list</h3>
 <% list = User.all%>
-
 <% list.each do |u| %>
   <ul>
-    <li> ID: <%= u.id%> - <%= u.username %> - <%= u.email %></li>
+    <li> <%= u.username %>
+      <ul>
+        <li>ID(<%= u.id%>) / Email: <%= u.email %> </li>
+      </ul>
+    </li>
+      
   </ul>  
 <% end %>
-
