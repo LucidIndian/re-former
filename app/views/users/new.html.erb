@@ -38,6 +38,16 @@
 <%# Railsy-er Forms with #form_with %>
 
 <%= form_with model: @user do |f| %>
+
+  <% if @user.errors.any? %>
+    <h4>These errors stopped the user from being saved:</h4>
+    <ul>
+      <% @user.errors.full_messages.each do |m| %>
+        <li><%= m %></li> 
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= f.label :username, "Username" %>
   <%= f.text_field :username, :value => "Keep it snappy" %> <br>
   <%= f.label :email, "E-mail" %>
